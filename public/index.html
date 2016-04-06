@@ -307,6 +307,7 @@ var addSub = function(link) {
 
 var loadMySubs = function()
 {
+	var date = moment().format('L');
   var url = "./listSubs?user=" + user;
   loadURL(url, function(data){
     var mySubs = JSON.parse(data);
@@ -318,7 +319,7 @@ var loadMySubs = function()
       var markUp = "";
       for (var i = 0; i < mySubs.length; i++){
         var aFeed = mySubs[i];
-        markUp += "<a href='javascript:aSubSelected(" + i + ")' class='listItem'>" + aFeed.id + " : " + aFeed.link +" </a>";
+        markUp += "<a href='javascript:aSubSelected(" + i + ")' class='listItem'>" + date + " " + aFeed.id + " : " + aFeed.link +" </a>";
       }
       document.getElementById("myFeedList").innerHTML = markUp;
       if(ENV.screen.small){
