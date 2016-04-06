@@ -226,6 +226,7 @@ var reject = function()
 {
    $.reject({  
      reject: { 
+		 opera: true
 		 //chrome: true
         }  
     });
@@ -281,7 +282,8 @@ var addSub = function(link) {
         
         id = sub.title.label; //get feed title to display in myFeedList
         
-        url = "./addOrEditSub?user=" + user + "&id=" + id + "&link=" + link;
+		var date = moment().format('L');
+        url = "./addOrEditSub?user=" + user + "&id=" + id + "&link=" + link + "&date=" + date;
         
         loadURL(url, function(data) {
             var res = data;
